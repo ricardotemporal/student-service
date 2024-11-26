@@ -9,9 +9,11 @@ const app = express();
 routes(app);
 
 /**
- * Starts the server and listens on port 3000.
- * Displays a message in the console to confirm the server is running.
+ * Starts the server and listens on the port defined by Vercel (process.env.PORT).
+ * Fallbacks to port 3000 if the environment variable is not set.
  */
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000...");
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log(`Server is listening on port ${port}...`);
 });
