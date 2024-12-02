@@ -46,17 +46,15 @@ export async function getStudentById(req, res) {
                 status,
             }));
 
-        /*
-        const classUrl = `https://microservico-turma.onrender.com/turmas?aluno_id=${id}`;
+        const classUrl = `https://microservico-turma-1.onrender.com/turmas?aluno_id=${id}`;
         const classResponse = await fetch(classUrl);
         const turmaData = await classResponse.json();
         const turma = turmaData?.turma || "No class assigned"; 
-        */
 
         const response = {
             ...student,
             grades: filteredGrades, 
-            // turma
+            turma
         };
         
         res.status(200).json(response);
